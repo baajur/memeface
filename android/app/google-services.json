@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "77442656148",
+    "firebase_url": "https://meme-face.firebaseio.com",
+    "project_id": "meme-face",
+    "storage_bucket": "meme-face.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77442656148:android:5db02a3c43bd8a78",
+        "android_client_info": {
+          "package_name": "com.chimichanga.memeface"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77442656148-2ra2tjd2193qji47rqlqtjulkuv7bgnf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK-nL4MldqHtOwyYwrxBI9FW0hnM84NGA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
