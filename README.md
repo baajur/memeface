@@ -1,16 +1,19 @@
-# memeface
+# Memeface
 
-A new Flutter project.
+A **Flutter** project that combines the power of the `camera` and `firebase_ml_vision` plugins to overlap faces in selfies with random meme faces. :trollface:
 
-## Getting Started
+<p align="center">
+  <img src="Before&#32;memeization.png" width="300"/>
+  <img src="After&#32;memeization.png" width="300"/> 
+</p>
 
-This project is a starting point for a Flutter application.
+## Important classes
 
-A few resources to get you started if this is your first Flutter project:
+* `TakePictureWidget` handles the selfie taking and presents its `File` afterwards. It leverages most of its work to the `CameraController`.
+* `MemeizeFaceWidget` takes a `File` containing an image and hands it to the `FirebaseVision` face detector to do its job. That job yields a `List<Face>` that are used to overlap `Image` elements on top of them.
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+## Userful links
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+* [Flutter Camera Plugin](https://pub.dartlang.org/packages/camera)
+* [Flutter ML Vision Plugin](https://pub.dartlang.org/packages/firebase_ml_vision) - Make sure to check [this guide](https://firebase.google.com/docs/flutter/setup) when seting up Firebase in a Flutter project.
+* [Official Flutter Page](https://flutter.io/docs)
