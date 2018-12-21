@@ -19,7 +19,8 @@ class MemeizeFaceWidget extends StatelessWidget {
   final File imageFile;
 
   const MemeizeFaceWidget({Key key, @required this.imageFile})
-      : super(key: key);
+      : assert(imageFile != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -69,11 +70,12 @@ class MemeizeFaceWidget extends StatelessWidget {
   }
 
   Future<_FaceDetectionResult> _detectFace() async {
-    var faces = await FirebaseVision.instance
-        .faceDetector(FaceDetectorOptions(
-            enableClassification: true, mode: FaceDetectorMode.accurate))
+    var faceDetector = FirebaseVision.instance
+        .faceDetector(FaceDetectorOptions(mode: FaceDetectorMode.fast));
+    var faces = await faceDetector
         .detectInImage(FirebaseVisionImage.fromFile(imageFile));
-    var rawImage = await decodeImageFromList(await imageFile.readAsBytes());
+    var imageBytes = await imageFile.readAsBytes();
+    var rawImage = await decodeImageFromList(imageBytes);
     return _FaceDetectionResult(faces, rawImage);
   }
 
@@ -86,5 +88,7 @@ class _FaceDetectionResult {
   final List<Face> faces;
   final ui.Image rawImage;
 
-  _FaceDetectionResult(this.faces, this.rawImage);
+  _FaceDetectionResult(this.faces, this.rawImage)
+      : assert(faces != null),
+        assert(rawImage != null);
 }

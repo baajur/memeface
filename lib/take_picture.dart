@@ -10,14 +10,16 @@ class TakePictureWidget extends StatelessWidget {
         List<CameraDescription> descriptions = await availableCameras();
         var frontCamera = descriptions
             .firstWhere((it) => it.lensDirection == CameraLensDirection.front);
-        var cameraController =
-          CameraController(frontCamera, ResolutionPreset.high);
+        var cameraController = CameraController(frontCamera, ResolutionPreset.high);
         await cameraController.initialize();
         return cameraController;
       });
+
   final Function(File) onPictureTaken;
 
-  TakePictureWidget({Key key, @required this.onPictureTaken}) : super(key: key);
+  TakePictureWidget({Key key, @required this.onPictureTaken})
+      : assert(onPictureTaken != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +42,13 @@ class _FullscreenCameraPreview extends StatefulWidget {
 
   const _FullscreenCameraPreview(
       {Key key, @required this.cameraController, @required this.onPictureTaken})
-      : super(key: key);
-
+      : assert(cameraController != null),
+        assert(onPictureTaken != null),
+        super(key: key);
 
   @override
-  _FullscreenCameraPreviewState createState() => _FullscreenCameraPreviewState();
+  _FullscreenCameraPreviewState createState() =>
+      _FullscreenCameraPreviewState();
 }
 
 class _FullscreenCameraPreviewState extends State<_FullscreenCameraPreview> {
